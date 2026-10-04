@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gela | Contacto y Consultas</title>
+  <!-- Google Fonts: Playfair Display + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS Externo con ruta relativa desde la raíz -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header">
+        <!-- Bloque 1: Marca (Izquierda) -->
+        <div class="header__brand">
+            <a href="../index.html" class="nav__link">
+            <img src="../assets/img/ui/logo.png" alt="Logotipo oficial de Gela Joyas" width="120" class="header__logo">
+            </a>
+            <div class="header__textos">
+            <h1 class="header__title">Gela Accesorios</h1>            
+            </div>
+        </div>
+        <!-- Bloque 2: Buscador (Centro) -->
+        <form class="search-container" onsubmit="return false;">
+            <input type="search" placeholder="Buscar..." class="search-input">
+            <button type="submit" class="search-btn">🔍</button>
+        </form>
+        <!-- Bloque 3: Espaciador Invisible (Derecha) -->
+        <nav class="header__actions">
+            <!-- Icono de Usuario -->
+            <a href="./login.html" class="action-btn" title="Iniciar Sesión">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </a>
+            <!-- Icono de Favoritos -->
+            <a href="./favoritos.html" class="action-btn" title="Mis Favoritos">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </a>
+            <!-- Icono de Carrito con Contador -->
+            <a href="./carrito.html" class="action-btn action-btn--cart" title="Carrito de Compras">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span class="cart-badge">2</span>
+            </a>
+        </nav>
+    </header>
+
+  <!-- Navegación con rutas relativas hacia la raíz u otras páginas -->
+  <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="../index.html" class="nav__link">Inicio</a></li>            
+            <li class="dropdown nav__item">
+                <a href="./productos.html" class="drop-btn">Productos ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Plata 925</a></li>
+                    <li><a href="#">Acero Quirúrgico</a></li>
+                    <li><a href="#">Acero Blanco</a></li>
+                    <li><a href="#">Acero Dorado</a></li>
+                </ul>
+            </li>
+            <li class="nav__item"><a href="./quienes-somos.html" class="nav__link">Quiénes Somos</a></li>
+            <li class="nav__item"><a href="./contacto.html" class="nav__link">Contacto</a></li>
+            <li class="nav__item"><a href="./ayuda.html" class="nav__link">Ayuda</a></li>
+        </ul>
+    </nav>
+
+  <!-- Contenido Principal -->
+  <main class="main-content">
+
+    <section class="faq-section">
+      <h2 class="faq-title">QUIENES SOMOS</h2>
+      
+      <div class="faq-container">
+
+        <!-- Tarjeta de Pregunta 1 -->
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span class="faq-icon-title">
+              <span class="faq-emoji">📱</span> 
+              ¿Cómo hago un pedido personalizado?
+            </span>
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-content">
+            <p>Para encargar una pieza única (aros, pulseras o collares), escribinos a través de nuestro formulario de contacto detallando los materiales de tu preferencia. Nos comunicaremos con vos para definir el diseño.</p>
+          </div>
+        </details>
+
+        <!-- Tarjeta de Pregunta 2 -->
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span class="faq-icon-title">
+              <span class="faq-emoji">🚚</span> 
+              ¿Cuánto tardan en preparar los accesorios?
+            </span>
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-content">
+            <p>Las piezas en stock se despachan en 48 horas hábiles. Si tu pedido es personalizado o requiere modificaciones de talle, la producción puede demorar entre 3 y 5 días antes del envío.</p>
+          </div>
+        </details>
+
+        <!-- Tarjeta de Pregunta 3 -->
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span class="faq-icon-title">
+              <span class="faq-emoji">💎</span> 
+              ¿Cómo debo cuidar mis joyas de Plata 925?
+            </span>
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-content">
+            <p>Te recomendamos evitar el contacto con perfumes, cremas o agua de pileta. Guardá tus accesorios en bolsitas individuales en lugares secos para mantener su brillo por mucho más tiempo.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <p>&copy; 2026 Gela Accesorios. Todos los derechos reservados.</p>
+    <p><a href="mailto:contacto@gela.com">contacto@gela.com</a></p>
+  </footer>
+
+</body>
+</html>

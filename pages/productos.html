@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gela | Catálogo de Productos y Reseñas</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS Externo -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+</head>
+<body id="arriba">
+
+  <!-- Encabezado -->
+  <header class="header">
+        <!-- Bloque 1: Marca (Izquierda) -->
+        <div class="header__brand">
+            <a href="../index.html" class="nav__link">
+            <img src="../assets/img/ui/logo.png" alt="Logotipo oficial de Gela Joyas" width="120" class="header__logo">
+            </a>
+            <div class="header__textos">
+            <h1 class="header__title">Gela Accesorios</h1>            
+            </div>
+        </div>
+        <!-- Bloque 2: Buscador (Centro) -->
+        <form class="search-container" onsubmit="return false;">
+            <input type="search" placeholder="Buscar..." class="search-input">
+            <button type="submit" class="search-btn">🔍</button>
+        </form>
+        <!-- Bloque 3: Espaciador Invisible (Derecha) -->
+        <nav class="header__actions">
+            <!-- Icono de Usuario -->
+            <a href="./login.html" class="action-btn" title="Iniciar Sesión">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </a>
+            <!-- Icono de Favoritos -->
+            <a href="./favoritos.html" class="action-btn" title="Mis Favoritos">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </a>
+            <!-- Icono de Carrito con Contador -->
+            <a href="./carrito.html" class="action-btn action-btn--cart" title="Carrito de Compras">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span class="cart-badge">2</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Navegación -->
+    <nav class="nav">
+      <ul class="nav__list">
+              <li class="nav__item"><a href="../index.html" class="nav__link">Inicio</a></li>            
+              <li class="dropdown nav__item">
+              <a href="./productos.html" class="drop-btn">Productos ▾</a>
+          <ul class="dropdown-menu">
+              <li><a href="#">Plata 925</a></li>
+              <li><a href="#">Acero Quirúrgico</a></li>
+              <li><a href="#">Acero Blanco</a></li>
+              <li><a href="#">Acero Dorado</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="./quienes-somos.html" class="nav__link">Quiénes Somos</a></li>
+        <li class="nav__item"><a href="./contacto.html" class="nav__link">Contacto</a></li>
+        <li class="nav__item"><a href="./ayuda.html" class="nav__link">Ayuda</a></li>
+      </ul>
+    </nav>
+  
+
+  <!-- Contenido Principal -->
+  <!-- Contenido Principal -->
+  <main class="main-content">
+
+    <!-- SECCIÓN: Catálogo Completo (Unificado con la grilla simétrica de 4 por fila) -->
+    <section class="catalog">
+      <h2 class="section-title">Colección Destacada</h2>
+      
+      <!-- CAMBIO CLAVE: Usamos el contenedor Grid del index para alinear de a 4 productos -->
+      <div class="products-grid-container">
+        
+        <!-- Fila 1 - Producto 1 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80" alt="Collar con dije en plata 925" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Collar Dije Luz</h3>
+            <span class="card__material">Plata 925</span>
+            <p class="card__description">Cadena veneciana fina de 45 cm con dije punto de luz circón engarzado.</p>
+            <p class="card__price">$18.500</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 1 - Producto 2 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=400&q=80" alt="Pulsera eslabones de acero dorado" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Pulsera Eslabón Aura</h3>
+            <span class="card__material">Acero Dorado</span>
+            <p class="card__description">Eslabones texturados con cierre marinero reforzado, baño inalterable.</p>
+            <p class="card__price">$14.200</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 1 - Producto 3 -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1611591475828-e4b958e0a174?w=400&q=80" alt="Argollas de acero quirúrgico" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Aros Argolla Bold</h3>
+            <span class="card__material">Acero Quirúrgico 316L</span>
+            <p class="card__description">Diseño tubular liviano e hipoalergénico, apto para uso continuo.</p>
+            <p class="card__price">$9.800</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 1 - Producto 4 (NUEVO) -->
+        <article class="card">
+          <img src="https://unsplash.com" alt="Anillo minimalista de plata 925" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Anillo Simple Plata</h3>
+            <span class="card__material">Plata 925</span>
+            <p class="card__description">Banda lisa pulida a espejo ideal para uso diario o combinaciones.</p>
+            <p class="card__price">$11.300</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 2 - Producto 5 (NUEVO) -->
+        <article class="card">
+          <img src="https://unsplash.com" alt="Collar doble con dijes geométricos" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Collar Doble Geo</h3>
+            <span class="card__material">Acero Blanco</span>
+            <p class="card__description">Dos cadenas superpuestas con finos colgantes de cristales y formas.</p>
+            <p class="card__price">$15.900</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 2 - Producto 6 (NUEVO) -->
+        <article class="card">
+          <img src="https://unsplash.com" alt="Anillo solitario con piedra brillante" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Anillo Solitario</h3>
+            <span class="card__material">Plata 925</span>
+            <p class="card__description">Anillo de compromiso clásico con cristal central engarzado de 4 garras.</p>
+            <p class="card__price">$22.000</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 2 - Producto 7 (NUEVO) -->
+        <article class="card">
+          <img src="https://unsplash.com" alt="Aros colgantes elegantes con perlas" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Aros Perla Drop</h3>
+            <span class="card__material">Acero Dorado</span>
+            <p class="card__description">Ganchos elegantes con perlas de brillo satinado natural.</p>
+            <p class="card__price">$12.400</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 2 - Producto 8 (NUEVO) -->
+        <article class="card">
+          <img src="https://unsplash.com" alt="Pulsera de esferas de plata" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Pulsera Esferas Silver</h3>
+            <span class="card__material">Plata 925</span>
+            <p class="card__description">Bolas macizas de plata unidas por cadena elástica reforzada de alta resistencia.</p>
+            <p class="card__price">$19.100</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 3 - Producto 9 (NUEVO) -->
+        <article class="card">
+          <img src="https://unsplash.com" alt="Collar doble con dijes geométricos" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Collar Doble Geo</h3>
+            <span class="card__material">Acero Blanco</span>
+            <p class="card__description">Dos cadenas superpuestas con finos colgantes de cristales y formas.</p>
+            <p class="card__price">$15.900</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 3 - Producto 10 (NUEVO) -->
+        <article class="card">
+          <img src="https://unsplash.com" alt="Anillo solitario con piedra brillante" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Anillo Solitario</h3>
+            <span class="card__material">Plata 925</span>
+            <p class="card__description">Anillo de compromiso clásico con cristal central engarzado de 4 garras.</p>
+            <p class="card__price">$22.000</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 3 - Producto 11 (NUEVO) -->
+        <article class="card">
+          <img src="https://unsplash.com" alt="Aros colgantes elegantes con perlas" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Aros Perla Drop</h3>
+            <span class="card__material">Acero Dorado</span>
+            <p class="card__description">Ganchos elegantes con perlas de brillo satinado natural.</p>
+            <p class="card__price">$12.400</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Fila 3 - Producto 12 (NUEVO) -->
+        <article class="card">
+          <img src="https://unsplash.com" alt="Pulsera de esferas de plata" class="card__img">
+          <div class="card__body">
+            <h3 class="card__title">Pulsera Esferas Silver</h3>
+            <span class="card__material">Plata 925</span>
+            <p class="card__description">Bolas macizas de plata unidas por cadena elástica reforzada de alta resistencia.</p>
+            <p class="card__price">$19.100</p>
+            <button class="card__btn">Agregar al carrito</button>
+          </div>
+        </article>
+        
+
+      </div>
+    </section>
+
+    <!-- REQUISITO: Reseñas organizadas con CSS Grid -->
+    <section class="reviews">
+      <h2 class="section-title">Lo que dicen nuestras clientas</h2>
+
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <article class="review-card">
+          <p class="review-card__stars">★★★★★</p>
+          <blockquote class="review-card__text">"Los aros de acero quirúrgico no me dieron ninguna alergia, los uso hace semanas sin sacármelos y el brillo sigue intacto."</blockquote>
+          <p class="review-card__author">— Camila V., CABA</p>
+        </article>
+
+        <!-- Review 2 -->
+        <article class="review-card">
+          <p class="review-card__stars">★★★★★</p>
+          <blockquote class="review-card__text">"El collar de plata llegó en una presentación hermosa. La calidad de la cadena superó mis expectativas."</blockquote>
+          <p class="review-card__author">— Valentina R., La Plata</p>
+        </article>
+
+        <!-- Review 3 -->
+        <article class="review-card">
+          <p class="review-card__stars">★★★★★</p>
+          <blockquote class="review-card__text">"Excelente atención por WhatsApp para elegir la medida de la pulsera dorada. Envío súper rápido."</blockquote>
+          <p class="review-card__author">— Mariana S., Córdoba</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <p>&copy; 2026 Gela Accesorios. Todos los derechos reservados.</p>
+    <p><a href="mailto:contacto@gela.com">contacto@gela.com</a></p>
+  </footer>
+
+  <!-- Contenedor de botones flotantes -->
+  <div class="botones-flotantes">
+    
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me" class="btn-flotante btn-whatsapp" target="_blank" aria-label="Chat de WhatsApp">
+      <!-- Icono Oficial de WhatsApp en SVG -->
+      <svg xmlns="http://w3.org" viewBox="0 0 448 512" class="icono-svg">
+        <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+      </svg>
+    </a>
+
+    <!-- Botón Volver Arriba -->
+    <a href="#arriba" class="btn-flotante btn-subir" aria-label="Volver arriba">
+      <!-- Flecha Estilizada en SVG -->
+      <svg xmlns="http://w3.org" viewBox="0 0 384 512" class="icono-svg">
+        <path fill="currentColor" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
+      </svg>
+    </a>
+
+  </div>
+
+</body>
+</html>

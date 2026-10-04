@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gela | Contacto y Consultas</title>
+  <!-- Google Fonts: Playfair Display + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS Externo con ruta relativa desde la raíz -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+</head>
+<body id="arriba">
+
+  <!-- Encabezado -->
+  <header class="header">
+        <!-- Bloque 1: Marca (Izquierda) -->
+        <div class="header__brand">
+            <a href="../index.html" class="nav__link">
+            <img src="../assets/img/ui/logo.png" alt="Logotipo oficial de Gela Joyas" width="120" class="header__logo">
+            </a>
+            <div class="header__textos">
+            <h1 class="header__title">Gela Accesorios</h1>            
+            </div>
+        </div>
+        <!-- Bloque 2: Buscador (Centro) -->
+        <form class="search-container" onsubmit="return false;">
+            <input type="search" placeholder="Buscar..." class="search-input">
+            <button type="submit" class="search-btn">🔍</button>
+        </form>
+        <!-- Bloque 3: Espaciador Invisible (Derecha) -->
+        <nav class="header__actions">
+            <!-- Icono de Usuario -->
+            <a href="./login.html" class="action-btn" title="Iniciar Sesión">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </a>
+            <!-- Icono de Favoritos -->
+            <a href="./favoritos.html" class="action-btn" title="Mis Favoritos">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </a>
+            <!-- Icono de Carrito con Contador -->
+            <a href="./carrito.html" class="action-btn action-btn--cart" title="Carrito de Compras">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span class="cart-badge">2</span>
+            </a>
+        </nav>
+    </header>
+
+  <!-- Navegación con rutas relativas hacia la raíz u otras páginas -->
+  <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="../index.html" class="nav__link">Inicio</a></li>            
+            <li class="dropdown nav__item">
+                <a href="./productos.html" class="drop-btn">Productos ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Plata 925</a></li>
+                    <li><a href="#">Acero Quirúrgico</a></li>
+                    <li><a href="#">Acero Blanco</a></li>
+                    <li><a href="#">Acero Dorado</a></li>
+                </ul>
+            </li>
+            <li class="nav__item"><a href="./quienes-somos.html" class="nav__link">Quiénes Somos</a></li>
+            <li class="nav__item"><a href="./contacto.html" class="nav__link">Contacto</a></li>
+            <li class="nav__item"><a href="./ayuda.html" class="nav__link">Ayuda</a></li>
+        </ul>
+    </nav>
+
+  <!-- Contenido Principal -->
+  <main class="main-content">
+
+    <section class="faq-section">
+      <h2 class="faq-title">Preguntas Frecuentes</h2>
+      
+      <div class="faq-container">
+
+        <!-- Tarjeta de Pregunta 1 -->
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span class="faq-icon-title">
+              <span class="faq-emoji">📱</span> 
+              ¿Cómo hago un pedido personalizado?
+            </span>
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-content">
+            <p>Para encargar una pieza única (aros, pulseras o collares), escribinos a través de nuestro formulario de contacto detallando los materiales de tu preferencia. Nos comunicaremos con vos para definir el diseño.</p>
+          </div>
+        </details>
+
+        <!-- Tarjeta de Pregunta 2 -->
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span class="faq-icon-title">
+              <span class="faq-emoji">🚚</span> 
+              ¿Cuánto tardan en preparar los accesorios?
+            </span>
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-content">
+            <p>Las piezas en stock se despachan en 48 horas hábiles. Si tu pedido es personalizado o requiere modificaciones de talle, la producción puede demorar entre 3 y 5 días antes del envío.</p>
+          </div>
+        </details>
+
+        <!-- Tarjeta de Pregunta 3 -->
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span class="faq-icon-title">
+              <span class="faq-emoji">💎</span> 
+              ¿Cómo debo cuidar mis joyas de Plata 925?
+            </span>
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-content">
+            <p>Te recomendamos evitar el contacto con perfumes, cremas o agua de pileta. Guardá tus accesorios en bolsitas individuales en lugares secos para mantener su brillo por mucho más tiempo.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <p>&copy; 2026 Gela Accesorios. Todos los derechos reservados.</p>
+    <p><a href="mailto:contacto@gela.com">contacto@gela.com</a></p>
+  </footer>
+
+  <!-- Contenedor de botones flotantes -->
+  <div class="botones-flotantes">
+    
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me" class="btn-flotante btn-whatsapp" target="_blank" aria-label="Chat de WhatsApp">
+      <!-- Icono Oficial de WhatsApp en SVG -->
+      <svg xmlns="http://w3.org" viewBox="0 0 448 512" class="icono-svg">
+        <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+      </svg>
+    </a>
+
+    <!-- Botón Volver Arriba -->
+    <a href="#arriba" class="btn-flotante btn-subir" aria-label="Volver arriba">
+      <!-- Flecha Estilizada en SVG -->
+      <svg xmlns="http://w3.org" viewBox="0 0 384 512" class="icono-svg">
+        <path fill="currentColor" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
+      </svg>
+    </a>
+
+  </div>
+
+</body>
+</html>

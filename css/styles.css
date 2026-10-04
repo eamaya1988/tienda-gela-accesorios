@@ -1,0 +1,1060 @@
+/* INDICE 
+
+1- RESET Y CONFIGURACIÓN BASE
+2- HEADER
+3- BARRA DE NAVEGACIÓN
+4- CONTENIDO PRINCIPAL & SECCIONES COMPLETAS (index.html)
+5- FOOTER
+6- FOOTER
+7- SECCIÓN PRODUCTOS CON FLEXBOX
+8- SECCIÓN RESEÑAS CON CSS GRID
+9- ESTILOS BASE DEL FORMULARIO DE CONTACTO (contacto.html)
+10- MEDIA QUERIES - DISEÑO RESPONSIVO
+*/
+
+
+
+/* ==========================================================================
+   1. RESET Y CONFIGURACIÓN BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Paleta cromática: Gela Joyas */
+  --color-primary: #1f2421;      /* Carbón / Grafito oscuro */
+  --color-accent: #b4aa80;       /* Dorado satinado */
+  --color-accent-light: #e2b896; /* Dorado suave */
+  --color-bg-light: #fbfbfb;     /* Blanco roto */
+  --color-surface: #ffffff;      /* Superficie tarjetas */
+  --color-text: #2f3e46;         /* Texto principal legible */
+  --color-muted: #6c757d;        /* Texto secundario */
+  --color-border: #e2e8f0;       /* Bordes sutiles */
+
+  /* Tipografías de Google Fonts */
+  --font-titles: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-light);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   2. HEADER
+   ========================================================================== */
+.header {
+  background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-accent-light) 100%);
+  color: var(--color-surface);
+  padding: 0.75rem 1.5rem; 
+  display: flex;
+  align-items: center;  
+  justify-content: space-between;
+}
+
+/* NUEVO: Mantiene el logo y el texto juntos a la izquierda con su propio espacio */
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1; /* Permite que el contenedor crezca y ocupe espacio disponible */
+  min-width: 220px; /* Evita que el contenido se desborde en pantallas pequeñas */
+}
+
+.header__logo {
+  max-width: 45px;
+  height: auto;
+}
+
+.header__title {
+  font-family: var(--font-titles);
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1; /* Evita que el título genere altura extra innecesaria */
+}
+
+/* Contenedor principal de la barra de búsqueda */
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Controla el ancho máximo */
+  margin: 0;  
+  border: 2px solid #ccc;
+  border-radius: 25px; /* Bordes redondeados */
+  overflow: hidden; /* Mantiene el contenido dentro de los bordes redondeados */
+  background-color: #f9f9f9; /* Color de fondo suave */
+  transition: border-color 0.3s ease;
+}
+
+/* Estilos para el campo de texto */
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  outline: none; /* Quita el borde azul por defecto del navegador */
+  background: transparent;
+}
+
+/* Estilos para el botón de búsqueda */
+.search-btn {
+  background: #007BFF; /* Color azul de fondo */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por el botón */
+.search-btn:hover {
+  background: #0056b3;
+}
+
+/* Efecto visual cuando el usuario hace clic dentro de la barra */
+.search-container:focus-within {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+
+/* NUEVO - Bloque 3: Menú de acciones a la derecha */
+.header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Empuja los iconos hacia el extremo derecho */
+  gap: 1.25rem; /* Espaciado entre cada icono */
+  flex: 1; 
+  min-width: 220px; /* IMPORTANTE: Mismo tamaño mínimo que .header__brand para no romper el centrado */
+}
+
+/* Estilos individuales para cada icono/enlace */
+.action-btn {
+  text-decoration: none;
+  color: var(--color-primary); 
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+  position: relative; /* Clave para posicionar el contador encima */
+}
+
+/* Efecto hover interactivo */
+.action-btn:hover {
+  transform: scale(1.1); /* Crece sutilmente al pasar el mouse */
+  opacity: 0.8;
+}
+
+.cart-badge { /* contador flotante del carrito*/
+  position: absolute;
+  top: -8px;      /* Lo mueve hacia arriba del icono */
+  right: -8px;    /* Lo mueve hacia la derecha del icono */
+  background-color: #ff3b30; /* Rojo vibrante de alerta */
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: sans-serif;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+/* ==========================================================================
+   3. BARRA DE NAVEGACIÓN
+   ========================================================================== */
+.nav {
+  background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-accent-light) 100%);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.nav__list {
+  list-style: none; /* Quita viñetas */
+  display: flex;    /* Alinea horizontalmente */
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0.85rem 1rem;
+}
+
+/* CLAVE 1: El padre debe ser relativo para que el submenú se alinee justo debajo */
+.dropdown {
+  position: relative;
+}
+
+.nav__link, .drop-btn {
+  text-decoration: none; /* Quita subrayado */
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav__link:hover, .drop-btn:hover {
+  color: var(--color-accent);
+}
+
+/* Ocultar el submenú por defecto */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Justo debajo del elemento principal */
+  left: 50%; /* Lo centramos respecto al botón "Categorías" */
+  transform: translateX(-50%); /* Ajuste fino de centrado */
+  background-color: var(--color-accent-light); /* Usa tu color primario */
+  border: 1px solid var(--color-accent); /* Borde sutil a juego */
+  list-style: none;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  padding: 0;
+  margin: 0;
+  z-index: 100; /* Asegura que quede por encima de otros elementos */
+}
+
+/* Mostrar el submenú al pasar el cursor */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Estilos de los enlaces del submenú */
+.dropdown-menu li a {
+  display: block;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--color-accent); /* Cambia al color acento al pasar el cursor */
+  color: var(--color-primary); /* Invierte el color de texto si es necesario */
+}
+
+
+/* ==========================================================================
+   4. CONTENIDO PRINCIPAL & SECCIONES COMPLETAS (index.html)
+   ========================================================================== */
+
+/* Cambiamos esto para que las secciones internas puedan tocar los bordes de la pantalla */
+.main-content {
+  flex: 1; 
+  width: 100%;
+  margin: 0; /* Remueve los márgenes laterales antiguos */
+}
+
+/* --- SECCIÓN 1: CARRUSEL DE BANNERS SIN JS --- */
+.banner-carousel {
+  position: relative;
+  max-width: 1200px;      
+  width: 90%;             
+  margin: 2rem auto 0 auto; 
+  overflow: hidden; 
+  border-radius: 8px;     
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+}
+
+.banner-carousel__input {
+  display: none;
+}
+
+/* Enlaces del banner */
+.banner-carousel__link {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Contenedor flexible actualizado para 3 banners (300% de ancho) */
+.banner-carousel__slides {
+  display: flex;
+  width: 300%; 
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Animación de deslizamiento más elegante */
+}
+
+/* Cada slide individual representa un tercio exacto del total (100% de la visual del carrusel) */
+.banner-carousel__slide {
+  width: 33.3333%; 
+}
+
+.banner-carousel__slide img {
+  width: 100%;
+  height: auto;           
+  display: block;
+}
+
+/* LÓGICA DE MOVIMIENTO PARA 3 SLIDES */
+#slide-1:checked ~ .banner-carousel__slides {
+  transform: translateX(0%);
+}
+
+#slide-2:checked ~ .banner-carousel__slides {
+  transform: translateX(-33.3333%);
+}
+
+#slide-3:checked ~ .banner-carousel__slides {
+  transform: translateX(-66.6666%);
+}
+
+/* --- SISTEMA DE FLECHAS FLOTANTES PURO CSS --- */
+
+/* Ocultamos todos los grupos de flechas por defecto */
+.banner-carousel__arrow-group {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  justify-content: space-between;
+  padding: 0 15px;
+  z-index: 5;
+  pointer-events: none; /* Evita que el contenedor invisible tape los clics del banner */
+}
+
+/* Estilo estético de cada flecha individual */
+.banner-carousel__arrow {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--color-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  pointer-events: auto; /* Reactiva los clics exclusivamente en los círculos de las flechas */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.banner-carousel__arrow:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: scale(1.1);
+}
+
+/* Muestra ÚNICAMENTE el grupo de flechas que corresponde al radio button que está :checked */
+#slide-1:checked ~ .banner-carousel__arrows .arrow-group-1,
+#slide-2:checked ~ .banner-carousel__arrows .arrow-group-2,
+#slide-3:checked ~ .banner-carousel__arrows .arrow-group-3 {
+  display: flex;
+}
+
+/* --- PUNTOS CONTROLADORES INFERIORES --- */
+.banner-carousel__controls {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.banner-carousel__bullet {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Sincronización del color del puntito activo para las 3 opciones */
+#slide-1:checked ~ .banner-carousel__controls .banner-carousel__bullet:nth-child(1),
+#slide-2:checked ~ .banner-carousel__controls .banner-carousel__bullet:nth-child(2),
+#slide-3:checked ~ .banner-carousel__controls .banner-carousel__bullet:nth-child(3) {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* --- SECCIÓN 2: PRODUCTOS DESTACADOS --- */
+.featured-products {
+  max-width: 1200px; /* Centra el bloque de productos para que no se estire de borde a borde en monitores gigantes */
+  width: 90%;
+  margin: 3rem auto; /* Separa de arriba y centra horizontalmente */
+}
+
+.featured-products__title {
+  font-family: var(--font-titles);
+  color: var(--color-primary);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Línea decorativa debajo del título de productos */
+.featured-products__title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent);
+}
+
+/* Grilla adaptable automática usando Grid Layout */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Crea columnas dinámicas según el espacio disponible */
+  gap: 1.75rem;
+}
+
+/* --- TARJETAS DE PRODUCTOS (E-COMMERCE CARD) --- */
+.product-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Pequeño salto hacia arriba al pasar por encima */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.product-card__img-container {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Obliga a que el espacio de la foto sea un cuadrado perfecto */
+  background-color: #f4f4f4;
+  overflow: hidden;
+}
+
+.product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-card__img {
+  transform: scale(1.05); /* Zoom sutil a la joya al hacer hover */
+}
+
+.product-card__content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Hace que el botón siempre quede alineado abajo de la tarjeta */
+}
+
+.product-card__title {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.product-card__material {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+.product-card__price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  margin-top: auto; /* Empuja el precio y botón al fondo */
+}
+
+.product-card__btn {
+  text-decoration: none;
+  text-align: center;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  padding: 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.product-card__btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
+.footer {
+  background-color: var(--color-accent-light);
+  color: var(--color-text);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+  margin-top: auto; /* Garantiza que si hay poco contenido el footer se quede abajo */
+}
+
+.footer a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   6. FOOTER
+   ========================================================================== */
+.footer {
+  background-color: var(--color-accent-light);
+  color: var(--color-text);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+.footer a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   7. SECCIÓN PRODUCTOS CON CSS GRID LAYOUT
+   ========================================================================== */
+.section-title {
+  font-family: var(--font-titles);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* El nuevo contenedor inteligente centrado a 1200px */
+.products-grid-container {
+  display: grid;
+  /* Define exactamente 4 columnas de igual tamaño (1fr) */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 2rem; /* Mantiene la separación limpia de 2rem tanto en filas como en columnas */
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto 3rem auto; /* Centra el bloque general en la pantalla */
+}
+
+/* --- ESTILOS DE LA TARJETA (Mantenemos tu base con mejoras de alineación) --- */
+.card {
+  width: 100%; /* Deja que CSS Grid maneje el ancho exacto del bloque */
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);  
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card__img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Esto hace que el interior responda armónicamente */
+}
+
+.card__title {
+  font-family: var(--font-titles);
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.card__material {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+}
+
+.card__description {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Si una descripción es más corta, estira este espacio para empujar el precio abajo */
+}
+
+.card__price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  margin-top: auto; /* Garantiza que los precios queden perfectamente en línea horizontal */
+}
+
+.card__btn {
+  background-color: var(--color-accent-light);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.7rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card__btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  border-color: var(--color-accent);
+}
+
+/* --- RESPONSIVE DESIGN (BUENA PRÁCTICA PROFESIONAL) --- */
+/* Si la pantalla es más chica (tablets), pasa automáticamente a 2 columnas */
+@media (max-width: 1024px) {
+  .products-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Si es un celular, se apilan en 1 sola columna para que se lea perfecto */
+@media (max-width: 580px) {
+  .products-grid-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+
+/* ==========================================================================
+   8. SECCIÓN RESEÑAS CON CSS GRID
+   ========================================================================== */
+.reviews {
+  /* Modificado: Ahora comparte el mismo ancho máximo y comportamiento que los productos */
+  max-width: 1200px;
+  width: 90%;
+  margin: 4rem auto; /* El 'auto' se encarga de centrar la sección en la pantalla */
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales en desktop */
+  gap: 1.5rem;
+  width: 100%; /* Asegura que ocupe el total de los 1200px disponibles en el padre */
+}
+
+.review-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-card__stars {
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.review-card__text {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.review-card__author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+/* ==========================================================================
+   9. ESTILOS BASE DEL FORMULARIO DE CONTACTO (contacto.html)
+   ========================================================================== */
+
+/* --- ESTRUCTURA GENERAL --- */
+
+.contact-section h2 { 
+  text-align: center;
+  margin-bottom: 1.5rem; 
+  color: var(--color-primary); 
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-form__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+/* --- CAMPOS DE TEXTO Y MENSAJE --- */
+
+.contact-form__input,
+.contact-form__textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  border-color: var(--color-accent);
+}
+
+/* --- SECCIÓN BOTONES DE RADIO (SÍ/NO) --- */
+
+.contact-form__fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-form__radio-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.4rem;
+}
+
+.contact-form__radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contact-form__radio-option input[type="radio"],
+.contact-form__radio-option label {
+  cursor: pointer;
+}
+
+/* --- LÓGICA DESPLEGABLE (SIN JAVASCRIPT) --- */
+
+/* Ocultamos el campo de pedido por defecto */
+.contact-form__pedido-desplegable {
+  display: none;
+  margin-top: 1rem;
+} 
+
+/* Si el radio "Sí" está marcado adentro del wrapper, se muestra su hermano desplegable */
+.contact-form__radio-wrapper:has(#radio-si:checked) ~ .contact-form__pedido-desplegable {
+  display: block;
+}
+
+/* --- CASILLA DE CHECKBOX (BOLETÍN) --- */
+
+.contact-form__group--checkbox {
+  flex-direction: row;   
+  align-items: center;   
+  gap: 0.5rem;           
+  padding-top: 0.25rem;  
+}
+
+.contact-form__group--checkbox input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  flex-shrink: 0;        
+}
+
+.contact-form__group--checkbox label {
+  cursor: pointer;       
+  font-size: 0.9rem;
+  line-height: 1.2;      
+  color: var(--color-primary);
+}
+
+/* --- BOTÓN DE ENVÍO --- */
+
+.contact-form__button {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  border: none;
+  padding: 0.85rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form__button:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+
+
+
+
+/* ==========================================================================
+   10. MEDIA QUERIES - DISEÑO RESPONSIVO
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* --- Ajustes del Header y Navegación --- */
+  .header {
+    flex-wrap: wrap; /* Permite que la barra de búsqueda baje a la segunda línea */
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
+
+  /* El logo y las acciones se quedan arriba compartiendo el espacio de forma limpia */
+  .header__brand {
+    min-width: auto; 
+    flex: initial;
+  }
+  
+  .header__actions {
+    min-width: auto;
+    flex: initial;
+    gap: 1.2rem; /* Espacio ligeramente más compacto entre iconos en móvil */
+  }
+
+  /* Ajustado: Evita que el título crezca de más y rompa la línea superior */
+  .header__title {
+    font-size: 1.2rem; 
+  }
+
+  /* La barra de búsqueda toma el 100% del ancho y se posiciona abajo */
+  .search-container {
+    max-width: 100%;
+    order: 3; /* Truco de Flexbox para mandarla al final del contenedor */
+    margin-top: 5px;
+  }
+
+  /* Barra de navegación en móviles (Tus estilos existentes) */
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* --- Otros Componentes --- */
+  /* Reseñas: Pasa de 3 columnas a 1 sola columna en pantallas menores a 768px */
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Formulario de contacto adaptado a móvil */
+  .contact-form {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+}
+
+/* PREGUNTAS FRECUENTES */
+
+/* Contenedor principal de FAQs */
+.faq-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.faq-title {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaciado entre cada recuadro */
+}
+
+/* El recuadro de cada pregunta */
+.faq-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: #b59410; /* Color destacado (ej: dorado para joyas) al pasar el cursor */
+}
+
+/* El encabezado interactivo (Pregunta + Flecha) */
+.faq-header {
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  list-style: none; /* Oculta la flecha por defecto del navegador en Chrome/Firefox */
+  font-weight: 500;
+  color: #2c3e50;
+  user-select: none;
+}
+
+/* Oculta la flecha por defecto en navegadores Safari */
+.faq-header::-webkit-details-marker {
+  display: none;
+}
+
+/* Alineación del ícono/emoji con el texto */
+.faq-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.faq-emoji {
+  font-size: 1.2rem;
+}
+
+/* Estilos y animación de la flecha */
+.faq-arrow {
+  font-size: 0.8rem;
+  color: #aaa;
+  transition: transform 0.3s ease;
+}
+
+/* EFECTO MÁGICO: Cuando el <details> se abre, rota la flecha 180 grados */
+.faq-item[open] .faq-arrow {
+  transform: rotate(180deg);
+  color: #b59410;
+}
+
+/* El contenedor del texto oculto (Respuesta) */
+.faq-content {
+  padding: 0 20px 20px 52px; /* Margen izquierdo alineado con el inicio del texto */
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-top: 1px solid #f5f5f5;
+  background-color: #fafafa;
+  animation: slideDown 0.3s ease-out; /* Animación de aparición suave */
+}
+
+/* Animación de despliegue */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+/* 11 - BOTONES FLOTANTES */
+/* Esto hace que el navegador scrollee suavemente sin usar JS */
+
+/* Estilos de los botones */
+html {
+  scroll-behavior: smooth;
+}
+
+.botones-flotantes {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+  z-index: 9999; 
+}
+
+.btn-flotante {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Esto define el color del SVG gracias a 'currentColor' */
+  text-decoration: none;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Controlamos el tamaño de los iconos de forma limpia */
+.icono-svg {
+  width: 26px;
+  height: 26px;
+}
+
+.btn-flotante:hover {
+  transform: scale(1.1);
+}
+
+/* Color de fondo y hover para WhatsApp */
+.btn-whatsapp {
+  background-color: #25D366;
+}
+.btn-whatsapp:hover {
+  background-color: #20ba5a;
+}
+
+/* Color de fondo y hover para el botón de subir */
+.btn-subir {
+  background-color: #333333;
+}
+.btn-subir:hover {
+  background-color: #555555;
+}
+
