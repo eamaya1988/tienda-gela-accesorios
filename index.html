@@ -271,14 +271,102 @@
 
     </main>
 
-
-    <!-- Pie de página -->
     <footer class="footer">
-        <p>&copy; 2026 Gela Accesorios. Todos los derechos reservados.</p>
-        <p><a href="mailto:contacto@gela.com">contacto@gela.com</a></p>
-        <div class="multimedia__location-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3271.453018728175!2d-57.953258886656286!3d-34.92017382270907!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e62e3fc93575%3A0x6ffaec3bf616e000!2sPlaza%20Moreno!5e0!3m2!1ses!2sar!4v1790813169656!5m2!1ses!2sar" 
-            width="400" height="300" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Ubicación de nuestro showroom de joyas"></iframe>
+        <div class="footer__container">
+            
+            <!-- Columna 1: Categorías de la Página -->
+            <div class="footer__col">
+                <h3 class="footer__title">Navegación</h3>
+                <ul class="footer__list">
+                    <li><a href="./index.html" class="footer__link">Inicio</a></li>
+                    <li><a href="./pages/productos.html" class="footer__link">Productos</a></li>
+                    <li><a href="./pages/quienes-somos.html" class="footer__link">Quiénes Somos</a></li>
+                    <li><a href="./pages/contacto.html" class="footer__link">Contacto</a></li>
+                    <li><a href="./pages/ayuda.html" class="footer__link">Ayuda (FAQ)</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 2: Confianza y Aspectos Legales -->
+            <div class="footer__col">
+                <h3 class="footer__title">Información Legal</h3>
+                <ul class="footer__list">
+                    <li><a href="./pages/terminos-condiciones.html" class="footer__link">Términos y Condiciones</a></li>
+                    <li><a href="./pages/privacidad.html" class="footer__link">Políticas de Privacidad</a></li>
+                    <li><a href="./pages/devoluciones.html" class="footer__link">Cambios y Devoluciones</a></li>
+                    <li><a href="./pages/defensa-consumidor.html" class="footer__link">Defensa al Consumidor</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Contacto y Redes Sociales -->
+            <div class="footer__col">
+                <h3 class="footer__title">Contacto</h3>
+                <ul class="footer__info-list">
+                    <li>📧 <a href="mailto:correo@ejemplo.com">contacto@gela.com</a></li>
+                    <li>📱 <a href="https://wa.me/5491123456789" target="_blank" rel="noopener noreferrer">+54 9 11 2345-6789</a></li>
+                    <li>⏰ Lun a Vie: 09:00 a 18:00</li>
+                </ul>
+                <div class="footer__socials">
+                    <a href="https://www.instagram.com/gela.accesorios/?hl=es-la" target="_blank" rel="noopener noreferrer" class="footer__social-btn" title="Instagram">
+                        <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.facebook.com/gela.accesories.5" target="_blank" rel="noopener noreferrer" class="footer__social-btn" title="Facebook">
+                        <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 4: Ubicación Física con Mapa integrado -->
+            <div class="footer__col">
+                <h3 class="footer__title">Nuestro Local</h3>
+                <p class="footer__text">La Plata, Provincia de Buenos Aires</p>
+                <div class="footer__map-container">
+                    <!-- Mapa embebido de Google Maps optimizado para rendimiento -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52343.08435772354!2d-57.994369728369165!3d-34.92043086955792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e62b1f0085a1%3A0xbcfc44f0547312e3!2sLa%20Plata%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1791160353049!5m2!1ses!2sar" 
+                        width="100%" 
+                        height="120" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fila Inferior: Medios de Pago, Envío y Sellos de Seguridad -->
+        <div class="footer__trust-bar">
+            <div class="footer__trust-group">
+                <span class="footer__trust-label">Medios de Pago</span>
+                <div class="footer__badges">
+                    <!-- Se usan placeholders visuales limpios en CSS mientras pones tus imágenes -->
+                    <span class="badge-card badge-card--visa">Visa</span>
+                    <span class="badge-card badge-card--master">Mastercard</span>
+                    <span class="badge-card badge-card--amex">Amex</span>
+                </div>
+            </div>
+
+            <div class="footer__trust-group">
+                <span class="footer__trust-label">Métodos de Envío</span>
+                <div class="footer__badges">
+                    <span class="badge-card badge-card--shipping">Correo Arg</span>
+                    <span class="badge-card badge-card--shipping">Andreani</span>
+                </div>
+            </div>
+
+            <div class="footer__trust-group">
+                <span class="footer__trust-label">Seguridad</span>
+                <div class="footer__badges">
+                    <span class="badge-card badge-card--secure">SSL Secure</span>
+                    <span class="badge-card badge-card--afip">Data Fiscal</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer__copyright">
+            <p>Copyright © 2026 Gela Joyas. Todos los derechos reservados. | Desarrollado en sintonía con la marca.</p>
         </div>
     </footer>
 

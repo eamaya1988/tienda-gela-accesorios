@@ -5,11 +5,12 @@
 3- BARRA DE NAVEGACIÓN
 4- CONTENIDO PRINCIPAL & SECCIONES COMPLETAS (index.html)
 5- FOOTER
-6- FOOTER
-7- SECCIÓN PRODUCTOS CON FLEXBOX
-8- SECCIÓN RESEÑAS CON CSS GRID
-9- ESTILOS BASE DEL FORMULARIO DE CONTACTO (contacto.html)
-10- MEDIA QUERIES - DISEÑO RESPONSIVO
+6- SECCIÓN PRODUCTOS CON FLEXBOX
+7- SECCIÓN RESEÑAS CON CSS GRID
+8- ESTILOS BASE DEL FORMULARIO DE CONTACTO (contacto.html)
+9- FAQ (Preguntas Frecuentes) con acordeón interactivo
+10- RESPONSIVE DESIGN (Media Queries)
+11- EXTRAS: BOTONES FLOTANTES, SCROLL SUAVE, ETC.
 */
 
 
@@ -511,38 +512,160 @@ body {
    5. FOOTER
    ========================================================================== */
 .footer {
-  background-color: var(--color-accent-light);
-  color: var(--color-text);
-  text-align: center;
-  padding: 1.5rem 1rem;
-  font-size: 0.85rem;
-  margin-top: auto; /* Garantiza que si hay poco contenido el footer se quede abajo */
+  /* Usamos exactamente el mismo degradado elegante de tu Header y Nav */
+  background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-accent-light) 100%);
+  color: var(--color-text); /* Texto principal legible oscuro */
+  padding: 3rem 1.5rem 1.5rem 1.5rem;
+  border-top: 2px solid var(--color-accent); /* Línea dorada idéntica al Nav */
+  margin-top: auto;
 }
 
-.footer a {
-  color: var(--color-text);
-  text-decoration: none;
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+  /* Línea divisoria sutil adaptada al fondo claro */
+  border-bottom: 1px solid rgba(31, 36, 33, 0.1); 
 }
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer__title {
+  font-family: var(--font-titles);
+  font-size: 1.15rem;
+  color: var(--color-primary); /* Títulos en el grafito oscuro de tu marca */
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+/* Forzamos que las listas y enlaces hereden el color correcto */
+.footer__list, 
+.footer__info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+/* ¡CLAVE! Aseguramos que los enlaces sean oscuros y legibles */
+.footer__link {
+  color: var(--color-text); 
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer__link:hover {
+  color: var(--color-accent); /* Cambia al dorado satinado en hover */
+  padding-left: 4px;
+}
+
+.footer__info-list li,
+.footer__text {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+/* Redes Sociales adaptadas a la paleta clara */
+.footer__socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer__social-btn {
+  color: var(--color-bg-light); /* Icono claro */
+  background-color: var(--color-primary); /* Círculo oscuro grafito */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.footer__social-btn:hover {
+  background-color: var(--color-accent); /* Cambia a dorado al pasar el mouse */
+  transform: translateY(-3px);
+}
+
+/* Contenedor del Mapa */
+.footer__map-container {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Fila Unificada Inferior (Trust Bar) */
+.footer__trust-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(31, 36, 33, 0.1);
+}
+
+.footer__trust-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer__trust-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+}
+
+.footer__badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Tarjetas y medios de pago integrados con bordes sutiles */
+.badge-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* Copyright Row */
+.footer__copyright {
+  text-align: center;
+  padding-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
 
 
 /* ==========================================================================
-   6. FOOTER
-   ========================================================================== */
-.footer {
-  background-color: var(--color-accent-light);
-  color: var(--color-text);
-  text-align: center;
-  padding: 1.5rem 1rem;
-  font-size: 0.85rem;
-}
-
-.footer a {
-  color: var(--color-text);
-  text-decoration: none;
-}
-
-/* ==========================================================================
-   7. SECCIÓN PRODUCTOS CON CSS GRID LAYOUT
+   6. SECCIÓN PRODUCTOS CON CSS GRID LAYOUT
    ========================================================================== */
 .section-title {
   font-family: var(--font-titles);
@@ -659,7 +782,7 @@ body {
 
 
 /* ==========================================================================
-   8. SECCIÓN RESEÑAS CON CSS GRID
+   7. SECCIÓN RESEÑAS CON CSS GRID
    ========================================================================== */
 .reviews {
   /* Modificado: Ahora comparte el mismo ancho máximo y comportamiento que los productos */
@@ -706,7 +829,7 @@ body {
 }
 
 /* ==========================================================================
-   9. ESTILOS BASE DEL FORMULARIO DE CONTACTO (contacto.html)
+   8. ESTILOS BASE DEL FORMULARIO DE CONTACTO (contacto.html)
    ========================================================================== */
 
 /* --- ESTRUCTURA GENERAL --- */
@@ -781,7 +904,7 @@ body {
   cursor: pointer;
 }
 
-/* --- LÓGICA DESPLEGABLE (SIN JAVASCRIPT) --- */
+/* --- LÓGICA DESPLEGABLE --- */
 
 /* Ocultamos el campo de pedido por defecto */
 .contact-form__pedido-desplegable {
@@ -794,7 +917,7 @@ body {
   display: block;
 }
 
-/* --- CASILLA DE CHECKBOX (BOLETÍN) --- */
+/* --- CASILLA DE CHECKBOX --- */
 
 .contact-form__group--checkbox {
   flex-direction: row;   
@@ -840,62 +963,8 @@ body {
 
 
 /* ==========================================================================
-   10. MEDIA QUERIES - DISEÑO RESPONSIVO
+   9. PREGUNTAS FRECUENTES (FAQ)
    ========================================================================== */
-@media (max-width: 768px) {
-  
-  /* --- Ajustes del Header y Navegación --- */
-  .header {
-    flex-wrap: wrap; /* Permite que la barra de búsqueda baje a la segunda línea */
-    padding: 0.75rem 1rem;
-    gap: 1rem;
-  }
-
-  /* El logo y las acciones se quedan arriba compartiendo el espacio de forma limpia */
-  .header__brand {
-    min-width: auto; 
-    flex: initial;
-  }
-  
-  .header__actions {
-    min-width: auto;
-    flex: initial;
-    gap: 1.2rem; /* Espacio ligeramente más compacto entre iconos en móvil */
-  }
-
-  /* Ajustado: Evita que el título crezca de más y rompa la línea superior */
-  .header__title {
-    font-size: 1.2rem; 
-  }
-
-  /* La barra de búsqueda toma el 100% del ancho y se posiciona abajo */
-  .search-container {
-    max-width: 100%;
-    order: 3; /* Truco de Flexbox para mandarla al final del contenedor */
-    margin-top: 5px;
-  }
-
-  /* Barra de navegación en móviles (Tus estilos existentes) */
-  .nav__list {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  /* --- Otros Componentes --- */
-  /* Reseñas: Pasa de 3 columnas a 1 sola columna en pantallas menores a 768px */
-  .reviews-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Formulario de contacto adaptado a móvil */
-  .contact-form {
-    width: 100%;
-    padding: 0 0.5rem;
-  }
-}
-
-/* PREGUNTAS FRECUENTES */
 
 /* Contenedor principal de FAQs */
 .faq-section {
@@ -929,10 +998,10 @@ body {
 }
 
 .faq-item:hover {
-  border-color: #b59410; /* Color destacado (ej: dorado para joyas) al pasar el cursor */
+  border-color: #b59410; /* Color destacado al pasar el cursor */
 }
 
-/* El encabezado interactivo (Pregunta + Flecha) */
+/* encabezado interactivo */
 .faq-header {
   padding: 18px 20px;
   display: flex;
@@ -998,12 +1067,71 @@ body {
 }
 
 
+/* ==========================================================================
+   10. MEDIA QUERIES - DISEÑO RESPONSIVO
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* --- Ajustes del Header y Navegación --- */
+  .header {
+    flex-wrap: wrap; /* Permite que la barra de búsqueda baje a la segunda línea */
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
+
+  /* El logo y las acciones se quedan arriba compartiendo el espacio de forma limpia */
+  .header__brand {
+    min-width: auto; 
+    flex: initial;
+  }
+  
+  .header__actions {
+    min-width: auto;
+    flex: initial;
+    gap: 1.2rem; /* Espacio ligeramente más compacto entre iconos en móvil */
+  }
+
+  /* Ajustado: Evita que el título crezca de más y rompa la línea superior */
+  .header__title {
+    font-size: 1.2rem; 
+  }
+
+  /* La barra de búsqueda toma el 100% del ancho y se posiciona abajo */
+  .search-container {
+    max-width: 100%;
+    order: 3; /* Truco de Flexbox para mandarla al final del contenedor */
+    margin-top: 5px;
+  }
+
+  /* Barra de navegación en móviles (Tus estilos existentes) */
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* --- Otros Componentes --- */
+  /* Reseñas: Pasa de 3 columnas a 1 sola columna en pantallas menores a 768px */
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Formulario de contacto adaptado a móvil */
+  .contact-form {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+}
 
 
 
-/* 11 - BOTONES FLOTANTES */
-/* Esto hace que el navegador scrollee suavemente sin usar JS */
 
+
+
+
+/* 11. EXTRAS */
+
+/* BOTONES FLOTANTES */
 /* Estilos de los botones */
 html {
   scroll-behavior: smooth;
